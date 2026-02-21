@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+    <title>The Story — Pallobi</title>
+    <meta name="description"
+        content="The story behind Pallobi — a hand-crafted pixel art portrait built with 172,440+ individually placed pixels.">
+    <meta name="author" content="Dip Chakraborty">
+    <meta name="theme-color" content="#060609">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://pallobi.dipchakraborty.com/story.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://pallobi.dipchakraborty.com/story.html">
+    <meta property="og:title" content="The Story — Pallobi">
+    <meta property="og:description"
+        content="The story behind Pallobi — a hand-crafted pixel art portrait built with passion.">
+    <meta property="og:image" content="https://pallobi.dipchakraborty.com/photo.png">
+    <meta property="og:site_name" content="Pallobi by Dip Chakraborty">
+    <link rel="icon" type="image/png" href="photo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: #060609;
+            color: #c4bfb0;
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.85;
+            min-height: 100vh;
+            overflow-x: hidden
+        }
+
+        ::selection {
+            background: rgba(196, 168, 130, .25);
+            color: #eeddbb
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(180, 150, 110, .2);
+            border-radius: 4px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(180, 150, 110, .35)
+        }
+
+        .scene {
+            position: relative;
+            min-height: 100vh
+        }
+
+        .scene::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 20%, rgba(160, 120, 80, .05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 28px 80px;
+            position: relative;
+            z-index: 1
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #998877;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border: 1px solid rgba(180, 150, 110, .12);
+            border-radius: 24px;
+            transition: all .4s ease;
+            margin-bottom: 48px;
+            backdrop-filter: blur(8px);
+            background: rgba(10, 10, 16, .5)
+        }
+
+        .back-btn:hover {
+            color: #eeddbb;
+            border-color: rgba(220, 180, 130, .3);
+            box-shadow: 0 0 20px rgba(200, 160, 100, .08);
+            transform: translateY(-1px)
+        }
+
+        .back-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform .3s ease
+        }
+
+        .back-btn:hover svg {
+            transform: translateX(-3px)
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 56px;
+            opacity: 0;
+            animation: fadeIn .8s ease .2s forwards
+        }
+
+        .hero h1 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #d4c4b0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 10px
+        }
+
+        .hero .tagline {
+            color: #887766;
+            font-size: 13px;
+            letter-spacing: 4px;
+            font-style: italic
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(196, 168, 130, .3), transparent);
+            margin: 0 auto 48px;
+            opacity: 0;
+            animation: fadeIn .6s ease .4s forwards
+        }
+
+        article {
+            opacity: 0;
+            animation: fadeIn .8s ease .5s forwards
+        }
+
+        article h2 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #d4c4b0;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 48px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(180, 150, 110, .08)
+        }
+
+        article h3 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #c4a882;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 36px 0 14px
+        }
+
+        article p {
+            color: #b8b0a0;
+            font-size: 15px;
+            margin-bottom: 16px;
+            text-align: justify
+        }
+
+        article p:last-child {
+            margin-bottom: 0
+        }
+
+        article ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 16px
+        }
+
+        article ul li {
+            color: #a8a090;
+            font-size: 14px;
+            padding: 4px 0 4px 20px;
+            position: relative
+        }
+
+        article ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(196, 168, 130, .3);
+            border: 1px solid rgba(196, 168, 130, .15)
+        }
+
+        article blockquote {
+            border-left: 2px solid rgba(196, 168, 130, .2);
+            padding: 12px 0 12px 24px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #c4a882;
+            font-size: 16px
+        }
+
+        article strong {
+            color: #d4c4b0;
+            font-weight: 600
+        }
+
+        .emoji-heading {
+            font-size: 14px
+        }
+
+        .tech-list li::before {
+            background: rgba(196, 168, 130, .5)
+        }
+
+        .closing {
+            margin-top: 56px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(180, 150, 110, .08)
+        }
+
+        .closing p {
+            text-align: center;
+            color: #887766;
+            font-style: italic;
+            font-size: 15px
+        }
+
+        .closing .thanks {
+            color: #c4a882;
+            font-size: 18px;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: 2px;
+            margin-top: 8px
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 28px 40px;
+            opacity: 0;
+            animation: fadeIn .8s ease .8s forwards;
+            position: relative;
+            z-index: 1
+        }
+
+        footer .story-link {
+            display: inline-block;
+            color: #998877;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(180, 150, 110, .1);
+            transition: all .3s ease;
+            margin-bottom: 24px
+        }
+
+        footer .story-link:hover {
+            color: #c4a882;
+            border-color: rgba(196, 168, 130, .3)
+        }
+
+        footer .flower-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #d4c4b0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            border: 1px solid rgba(196, 168, 130, .2);
+            border-radius: 28px;
+            transition: all .5s ease;
+            background: rgba(10, 10, 16, .6);
+            backdrop-filter: blur(12px)
+        }
+
+        footer .flower-btn:hover {
+            border-color: rgba(220, 180, 130, .4);
+            box-shadow: 0 0 30px rgba(200, 160, 100, .1), 0 0 60px rgba(200, 160, 100, .05);
+            color: #eeddbb;
+            transform: translateY(-2px)
+        }
+
+        footer .flower-btn span {
+            color: #cc8866;
+            transition: transform .3s ease;
+            display: inline-block
+        }
+
+        footer .flower-btn:hover span {
+            transform: scale(1.2)
+        }
+
+        footer .credit {
+            color: #554433;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 3px;
+            margin-top: 28px;
+            text-transform: uppercase
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(12px)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media(max-width:600px) {
+            .container {
+                padding: 40px 20px 60px
+            }
+
+            .hero h1 {
+                font-size: 20px;
+                letter-spacing: 4px
+            }
+
+            .hero .tagline {
+                font-size: 11px;
+                letter-spacing: 3px
+            }
+
+            article h2 {
+                font-size: 13px;
+                letter-spacing: 3px
+            }
+
+            article h3 {
+                font-size: 11px;
+                letter-spacing: 2px
+            }
+
+            article p {
+                font-size: 14px
+            }
+
+            footer .flower-btn {
+                font-size: 11px;
+                letter-spacing: 3px;
+                padding: 12px 24px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="scene">
+        <div class="container">
+            <a href="index.html" class="back-btn" aria-label="Back to the flower">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                the flower
+            </a>
+
+            <header class="hero">
+                <h1>The Flower</h1>
+                <p class="tagline">the story of the making</p>
+            </header>
+
+            <div class="divider"></div>
+
+            <article>
+                <p>This is not a project in the usual sense.</p>
+                <p>It's something I built slowly, quietly — for someone who matters to me.</p>
+                <p>It's a digital portrait made only with HTML and CSS, inspired by a photo I love the most. Just
+                    thousands of tiny <code
+                        style="color:#c4a882;font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(196,168,130,.08);padding:2px 6px;border-radius:3px">div</code>s,
+                    placed one by one.</p>
+                <p>It's simple.<br>It's imperfect.<br>It's probably outdated.</p>
+                <p>But building it, brick by brick, gave me joy.</p>
+
+                <h2>Why I Started This</h2>
+                <p>One day, I thought:</p>
+                <blockquote>"Instead of just looking at her photos, how about I try to build one?"</blockquote>
+                <p>It sounded cool. Like laying bricks!</p>
+                <p>So I decided to turn a real photo into pixel art using only code.</p>
+                <p>Not because it's practical. Because it felt meaningful to me!</p>
+
+                <h2>Planning</h2>
+                <p>I didn't have any real plan.</p>
+                <p>It went like this:</p>
+                <ul>
+                    <li>"Can I really do this with divs?"</li>
+                    <li>"This looks bad."</li>
+                    <li>"Let me try again."</li>
+                    <li>"Still bad."</li>
+                    <li>"One more time."</li>
+                    <li>"Oh… this is getting better."</li>
+                </ul>
+                <p>Repeat.</p>
+
+                <h2>How I Built It</h2>
+
+                <h3>Step 1: Basic Pixel Grid</h3>
+                <p>First, I made a grid using CSS Grid.</p>
+                <p>Each cell = one pixel.</p>
+                <p>At first, it was blurry. But it was a start.</p>
+
+                <h3>Step 2: Increasing Detail</h3>
+                <p>Then I kept improving:</p>
+                <ul>
+                    <li>Grid size</li>
+                    <li>Color accuracy</li>
+                    <li>Shading</li>
+                    <li>Contrast</li>
+                </ul>
+                <p>Every upgrade made the file bigger and slower.</p>
+                <p>But also more alive.</p>
+                <p>I didn't stop when it was "good enough". I stopped when it felt right.</p>
+
+                <h3>Step 3: Zoom &amp; Interaction</h3>
+                <p>I wanted people to:</p>
+                <ul>
+                    <li>Zoom in</li>
+                    <li>See the pixels</li>
+                    <li>Feel the effort</li>
+                </ul>
+                <p>So I added scroll-based zoom and panning.</p>
+
+                <h3>Step 4: Atmosphere</h3>
+                <p>Later, I added:</p>
+                <ul>
+                    <li>Soft glow</li>
+                    <li>Framing</li>
+                    <li>Background</li>
+                </ul>
+                <p>To make it feel more emotional and cinematic.</p>
+
+                <h3>Step 5: Mobile Optimization</h3>
+                <p>For mobile devices, I had to use canvas-style wrapping.</p>
+                <p>Otherwise, loading more than <strong>346,000 divs</strong> and <strong>178,000+ pixels</strong> could
+                    crash the browser.</p>
+
+                <h2 class="emoji-heading"> Tech Stack</h2>
+                <ul class="tech-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Some sleepless nights</li>
+                    <li>A lot of patience</li>
+                </ul>
+
+                <h2>What This Means to Me</h2>
+                <p>Compared to modern graphics, this is:</p>
+                <ul>
+                    <li>Low resolution</li>
+                    <li>Heavy</li>
+                    <li>Inefficient</li>
+                </ul>
+                <p>I know!</p>
+                <p>And I'm okay with that.</p>
+                <p>Because that was the point! This wasn't about optimization. It was about intention. Every pixel is
+                    there because I wanted it there.</p>
+                <p>This project won't make me money. It didn't go viral. It won't change the world.</p>
+                <p>But it changed something in me.</p>
+                <p>It reminded me that:</p>
+                <p>I still know what real feelings look like.<br>I can still sit down, focus, and build something when I
+                    care.<br>I can choose the longer road when I want.</p>
+                <p>And I'm happy I did.</p>
+
+                <h2>Was It Worth It?</h2>
+                <p style="text-align:center;color:#c4a882;font-size:18px;font-weight:600">Yes.</p>
+                <p style="text-align:center;color:#d4c4b0;font-style:italic">Because it's mine!</p>
+
+                <div class="closing">
+                    <p>Thanks for reading!</p>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <a href="story.html" class="story-link">The story of the making.</a>
+            <br><br>
+            <a href="index.html" class="flower-btn" aria-label="Go to the flower">
+                <span>&#10084;</span> See the flower
+            </a>
+            <p class="credit">Pallobi — by Dip</p>
+        </footer>
+    </main>
+</body>
+
+</html>
