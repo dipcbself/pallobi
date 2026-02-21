@@ -1,7 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="refresh" content="0; url=pallobi.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pallobi - Redirecting...</title>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+      if (isMobile) {
+        window.location.replace("pallobi-mobile.html");
+      } else {
+        window.location.replace("pallobi.html");
+      }
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=pallobi.html">
+  </noscript>
 </head>
-<body></body>
+
+<body>
+  <noscript>
+    <p>Redirecting... <a href="pallobi.html">Click here</a> if not redirected.</p>
+  </noscript>
+</body>
+
 </html>
