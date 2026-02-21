@@ -1,3 +1,6 @@
+<img width="872" height="876" alt="image" src="https://github.com/user-attachments/assets/dca524c7-36ce-41c1-87b2-2fef257b8904" />
+
+
 # The Flower
 
 This is not a project in the usual sense.
